@@ -10,7 +10,7 @@ with open("Yolo-tiny\coco.names", "r") as f:
 
 # Generate random colors for each class
 np.random.seed(42)
-COLORS = np.random.uniform(0, 0, size=(len(CLASSES), 3))
+COLORS = np.random.uniform(255, 255, size=(len(CLASSES), 3))
 
 # Initialize the video stream
 cap = cv2.VideoCapture(0)  # 0 for the default camera
@@ -74,7 +74,7 @@ while True:
                 class_ids.append(class_id)
 
     # Apply non-maxima suppression to suppress weak, overlapping bounding boxes
-    idxs = cv2.dnn.NMSBoxes(boxes, confidences, 0.3, 0.3)
+    idxs = cv2.dnn.NMSBoxes(boxes, confidences, 0.3, 0.2)
 
     # Draw the bounding boxes and labels on the frame
     if len(idxs) > 0:
