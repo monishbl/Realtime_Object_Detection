@@ -7,7 +7,7 @@ with open("Yolo-tiny\coco.names", "r") as f:
     CLASSES = f.read().strip().split("\n")
 
 np.random.seed(42)
-COLORS = np.random.uniform(255, 255, size=(len(CLASSES), 3))
+COLORS = np.random.uniform(255, 0, size=(len(CLASSES), 3))
 
 cap = cv2.VideoCapture(0)  
 if not cap.isOpened():
